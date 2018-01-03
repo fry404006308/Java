@@ -1,0 +1,11 @@
+package com.fry.poiDemo.operation;
+
+public class Word2Excel {
+	//在最外层的option操作里面，我要做的就是读哪个word文件，然后把对应的结果写到excel里面去就好，只有这两个操作
+		/*
+		 * 在最外层的option操作里面
+		 * 1、读哪个word文件
+		 * 2、把对应的结果写到excel里面去
+		 * 
+		 * */
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SimpleDocument.java&apos; to &apos;poi操作word2003和2007/src/com.fry.test&apos;&#x0D;&#x0A;- Original project: &apos;用poi进行word2007的操作&apos;&#x0D;&#x0A;- Destination element: &apos;poi操作word2003和2007/src/com.fry.test&apos;&#x0D;&#x0A;- Original element: &apos;SimpleDocument.SimpleDocument.java&apos;" description="Copy compilation unit" destination="=poi操作word2003和2007/src&lt;com.fry.test" element1="/src&lt;SimpleDocument{SimpleDocument.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1514588227117" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;jxl.jar&apos; to &apos;lib&apos;&#x0D;&#x0A;- Original project: &apos;学者库10.27&apos;&#x0D;&#x0A;- Destination element: &apos;lib&apos;&#x0D;&#x0A;- Original element: &apos;jxl.jar&apos;" description="Copy file" element1="lib/jxl.jar" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1514516291861" target="/读取word中考试题目到excel/lib" units="0" version="1.0"/>
+</session>

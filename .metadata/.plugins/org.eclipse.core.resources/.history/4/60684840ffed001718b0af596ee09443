@@ -1,0 +1,10 @@
+package com.fry.poiDemo.bean;
+
+public class Point {
+	String text;//这个知识点对应的全文
+	String pointID;//point的id号
+	String pointName;//point的名字
+	Question questions[];
+	
+	
+}

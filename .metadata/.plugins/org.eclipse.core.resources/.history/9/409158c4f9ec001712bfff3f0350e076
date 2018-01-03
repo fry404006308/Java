@@ -1,0 +1,9 @@
+package com.fry.test;
+
+public class testWordDocxImage {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

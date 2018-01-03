@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;poi读取word输出到excel/src/test/resources&apos;&#x0D;&#x0A;- Original project: &apos;poiTest&apos;&#x0D;&#x0A;- Destination element: &apos;poi读取word输出到excel/src/test/resources&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     test3.docx&#x0D;&#x0A;     test5.docx&#x0D;&#x0A;     test4.docx" description="Copy files" destination="=poi读取word输出到excel/src\/test\/resources" element1="src/test/resources/test3.docx" element2="src/test/resources/test5.docx" element3="src/test/resources/test4.docx" files="3" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1514694137257" units="0" version="1.0"/>
+</session>

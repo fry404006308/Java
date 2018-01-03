@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="org.apache.poi.openxml4j.exceptions.InvalidFormatException"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="org.apache.poi.xwpf.usermodel.XWPFDocument"/>
+<fullyQualifiedTypeName name="org.apache.poi.xwpf.extractor.XWPFWordExtractor"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="com.fry.poiTest.model.Word"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="org.apache.poi.xwpf.usermodel.XWPFPictureData"/>
+<fullyQualifiedTypeName name="org.apache.poi.xwpf.usermodel.XWPFTable"/>
+<fullyQualifiedTypeName name="org.apache.poi.xwpf.usermodel.XWPFTableRow"/>
+<fullyQualifiedTypeName name="org.apache.poi.xwpf.usermodel.XWPFTableCell"/>
+<fullyQualifiedTypeName name="org.apache.poi.hwpf.model.PicturesTable"/>
+<fullyQualifiedTypeName name="org.apache.poi.xwpf.usermodel.XWPFRun"/>
+<fullyQualifiedTypeName name="org.apache.poi.xwpf.usermodel.XWPFParagraph"/>
+<fullyQualifiedTypeName name="org.apache.poi.xwpf.usermodel.BreakType"/>
+<fullyQualifiedTypeName name="org.apache.poi.util.Units"/>
+<fullyQualifiedTypeName name="java.io.PrintStream"/>
+<fullyQualifiedTypeName name="com.fry.poiDemo.dao.Word"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.fry.poiDemo.bean.Point"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.fry.poiDemo.bean.Question"/>
+<fullyQualifiedTypeName name="com.fry.poiDemo.bean.Option"/>
+<fullyQualifiedTypeName name="org.apache.poi.sl.usermodel.Sheet"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Cell"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Row"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Sheet"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFWorkbook"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Workbook"/>
+<fullyQualifiedTypeName name="org.apache.poi.xssf.usermodel.XSSFWorkbook"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="com.fry.poiDemo.service.ExcelService"/>
+<fullyQualifiedTypeName name="com.fry.poiDemo.dao.Excel"/>
+<fullyQualifiedTypeName name="com.fry.poiDemo.bean.Exam"/>
+<fullyQualifiedTypeName name="com.fry.poiDemo.service.WordService"/>
+</qualifiedTypeNameHistroy>

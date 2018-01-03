@@ -1,0 +1,7 @@
+package com.fry.poiDemo.bean;
+
+public class Exam {
+	String text;//测试的全文内容
+	String name;//测试名称
+	Point points[];//测试对应的知识点
+}

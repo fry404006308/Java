@@ -1,0 +1,24 @@
+我国拟修改工伤保险条例调整工伤认定范围等
+  14:08   http://www.sina.com.cn新华网
+　　新华网北京电 国务院法制办24日全文公布《国务院关于修改<工伤保险条例>的决定(征求意见稿)》，征求社会各界意见，以便进一步研究、修改后报请国务院常务会议审议。
+
+　　一、征求意见稿的主要内容
+　　《工伤保险条例》（以下简称条例）自施行以来，对于及时救治和补偿受伤职工，保障工伤职工的合法权益，分散用人单位的工伤风险，发挥了重要作用。截至2009年6月，全国参加工伤保险职工已达1.4亿人。随着我国经济社会的发展，条例在实施过程中出现了一些新情况、新问题：第一，各地对工伤认定范围问题，特别是上下班途中受到机动车事故伤害，以及因违反治安管理和道路交通安全管理受到伤害是否认定为工伤问题争议较大，需对工伤认定范围进一步加以界定；第二，工伤认定、劳动能力鉴定和争议处理程序复杂，落实待遇时间过长，严重影响工伤职工的合法权益；第三，对不参保用人单位的处罚力度不够，影响了用人单位的参保积极性；第四，未参保工伤职工的伤亡待遇难以落实；第五，工伤保险的适用范围、基金支出项目、缴费方式、待遇标准等也需修改完善。
+　　为了解决上述问题，人力资源和社会保障部在认真总结条例实施经验的基础上，起草了《工伤保险条例修正案（送审稿）》，报请国务院审议。国务院法制办公室在充分听取有关部门和地方人民政府意见的基础上，与人力资源和社会保障部等有关部门反复研究修改，形成了征求意见稿。主要内容如下：
+　　（一）调整了工伤认定范围
+
+下面是图片：
+
+表格数据1	表格数据2	表格数据3	表格数据4	表格数据5
+表格数据6	表格数据7	表格数据8	表格数据9	表格数据10
+
+大样签发配置
+序号	配置说明	配置节点路径	配置节点	
+1	DAM数据库连接	<sign_paper_result_listener delay="60*1000" start="true">	<logHomePath>D:/media360/logs/dataExport</logHomePath>	<propertys>	<property key="db_url" name="数据库url" valueType="STRING">	jdbc:sqlserver://172.20.2.76:1433;DatabaseName=newsroom	</property>			
+2	DAM数据库用户名	<sign_paper_result_listener delay="60*1000" start="true">	<logHomePath>D:/media360/logs/dataExport</logHomePath>	<propertys>	<property key="db_user" name="数据库用户名" valueType="STRING">	sa	</property>			
+3	DAM数据库密码	<sign_paper_result_listener delay="60*1000" start="true">	<logHomePath>D:/media360/logs/dataExport</logHomePath>	<propertys>	<property key="db_password" name="数据库用户密码" valueType="STRING">	sUper2006	</property>			
+4	大样存放盘符或根（该路径不存入数据库中）	<sign_paper_result_listener delay="60*1000" start="true">	<logHomePath>D:/media360/logs/dataExport</logHomePath>	<propertys>	<property key="DAM_File_Path" name="大样文件存放目录根路径" valueType="STRING">	K:/	</property>			
+5	大样存放路径（大样存放路径从该路径开始存入数据库中）	<sign_paper_result_listener delay="60*1000" start="true">	<logHomePath>D:/media360/logs/dataExport</logHomePath>	<propertys>	<property key="DAM_File_Name" name="大样文件存放目录名" valueType="STRING">	DAM	</property>	
+6	DAM文件系统的compose路径	<sign_paper_result_listener delay="60*1000" start="true">	<logHomePath>D:/media360/logs/dataExport</logHomePath>	<propertys>	<property key="DAM_Compose_path" name="DAM文件系统的Compose路径" valueType="STRING">	Z:\compose	</property>	
+
+

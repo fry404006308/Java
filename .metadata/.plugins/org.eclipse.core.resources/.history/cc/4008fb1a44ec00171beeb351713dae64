@@ -1,0 +1,6 @@
+package com.fry.bean;
+
+public class Option {
+	String liter;
+	Image_ images;
+}

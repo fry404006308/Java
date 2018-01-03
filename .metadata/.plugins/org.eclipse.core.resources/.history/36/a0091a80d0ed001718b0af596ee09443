@@ -1,0 +1,207 @@
+package com.fry.poiTest.model;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.List;
+
+import org.apache.poi.POIXMLDocument;
+import org.apache.poi.POIXMLTextExtractor;
+import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
+import org.apache.poi.openxml4j.opc.OPCPackage;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFPictureData;
+import org.apache.poi.xwpf.usermodel.XWPFTable;
+import org.apache.poi.xwpf.usermodel.XWPFTableCell;
+import org.apache.poi.xwpf.usermodel.XWPFTableRow;
+import org.apache.xmlbeans.XmlException;
+
+public class Word {
+	//用Word中的readDocx函数读取path对应的srcFile文件中的文字
+	public void readDocx(String srcFile){
+		File file = new File(srcFile);
+        String str = "";
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            XWPFDocument xdoc = new XWPFDocument(fis);
+            XWPFWordExtractor extractor = new XWPFWordExtractor(xdoc);
+            String doc1 = extractor.getText();
+            System.out.println(doc1);
+            fis.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+	
+	//将srcFile（docx）word文件中的文字读取到destFile（txt）文本文件中去
+	public void readDocx2(String srcFile,String destFile){
+		//word 2007 图片不会被读取， 表格中的数据会被放在字符串的最后
+		OPCPackage opcPackage;
+		try {
+			opcPackage = POIXMLDocument.openPackage(srcFile);
+			POIXMLTextExtractor extractor = new XWPFWordExtractor(opcPackage);
+			String text2007 = extractor.getText();
+			System.out.println(text2007);
+			//将2007的测试输出结果打印到files\\2003.txt
+			PrintStream ps2=new PrintStream(destFile);
+			ps2.println(text2007);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (XmlException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (OpenXML4JException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	//maven太好用了
+	//读取srcFile源word文件docx中的image图片并且存放在文件夹imageFile中
+	public void readDocxImage(String srcFile,String imageFile){
+		String path =srcFile;
+	    File file = new File(path);
+	    try {
+	      //用XWPFWordExtractor来获取文字
+	      FileInputStream fis = new FileInputStream(file);
+	      XWPFDocument document = new XWPFDocument(fis);
+	      XWPFWordExtractor xwpfWordExtractor = new XWPFWordExtractor(document);
+	      String text = xwpfWordExtractor.getText();
+	      System.out.println(text);
+	      
+	      //用XWPFDocument的getAllPictures来获取所有的图片
+	      List<XWPFPictureData> picList = document.getAllPictures();
+	      for (XWPFPictureData pic : picList) {
+	        System.out.println(pic.getPictureType() + file.separator + pic.suggestFileExtension()
+	            +file.separator+pic.getFileName());
+	        byte[] bytev = pic.getData();
+	        System.out.println(bytev.length);
+	        //大于1000bites的图片我们才弄下来，消除word中莫名的小图片的影响
+	        if(bytev.length>300){
+	        	FileOutputStream fos = new FileOutputStream(imageFile+pic.getFileName()); 
+		        fos.write(bytev);
+	        }
+	      }
+	      fis.close();
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    }
+	}
+	
+	//读取word(.docx)中的表格
+	public void readDocxTable(String srcFile){
+		System.out.println("------------------------------这是读取表格readDocxTable分割线------------------------------");
+		XWPFDocument document;
+		try {
+			document = new XWPFDocument(new FileInputStream(srcFile));
+			// 获取所有表格
+			List<XWPFTable> tables = document.getTables();
+			for (XWPFTable table : tables) {
+			    // 获取表格的行
+			    List<XWPFTableRow> rows = table.getRows();
+			    for (XWPFTableRow row : rows) {
+			        // 获取表格的每个单元格
+			        List<XWPFTableCell> tableCells = row.getTableCells();
+			        for (XWPFTableCell cell : tableCells) {
+			             // 获取单元格的内容
+			             String text = cell.getText();
+			             System.out.println(text);
+			        }
+			    }
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	//回车符ASCII
+	private static final short ENTER_ASCII=13;
+	//空格符ASCII
+	private static final short SPACE_ASCII=32;
+	//水平制表符
+	private static final short TABULATION_ASCII=9;
+	private String htmlText="";
+	//读取word(.docx)中的图片的位置
+	public void readDocxImagePosition(){
+		File file = new File(path); 
+		   FileInputStream in=new FileInputStream(file.getAbsolutePath()); 
+		   HWPFDocument doc=new HWPFDocument(in); 
+		   int length=doc.characterLength();
+		   PicturesTable pTable=doc.getPicturesTable();
+		   htmlText="<h3 align='center'>"+doc.getSummaryInformation().getTitle()+"</h3>";
+		   int TitleLength=doc.getSummaryInformation().getTitle().length();
+		   int imgBegin=0;
+		   int imgEnd=0;
+		   String tempString="";
+		   String picpath="";
+		   char currentChar=' ';
+		   int rowCount=0;
+		   for (int i=TitleLength;i<length-1;i++){
+		   Range range=new Range(i, i+1,doc);
+		   
+		   CharacterRun cr=range.getCharacterRun(0);
+		   System.out.print(currentChar); 
+//			   System.out.print(pTable.hasPicture(cr)); 
+		   if(pTable.hasPicture(cr)){
+		   
+		   //获取图片路径
+		   picpath=this.readPicture(pTable, cr);
+		  
+		   currentChar=cr.text().charAt(0);
+		   tempString+=picpath+"<br/>";
+
+		   }else {
+		   Range range2=new Range(i+1, i+2,doc);
+		   CharacterRun cr2=range.getCharacterRun(0);
+		   currentChar=cr.text().charAt(0);
+		   System.out.print(currentChar+"字符"); 
+		   if(currentChar==ENTER_ASCII){
+		   tempString+="<br/>";
+		       
+		        }
+		   else if(currentChar==SPACE_ASCII)
+		   tempString+="&nbsp;";
+		   else if (currentChar==TABULATION_ASCII)
+		   tempString+="&nbsp;&nbsp;&nbsp;";
+		   boolean flag=compareCharStyle(cr,cr2);
+		   String fontStyle="<span style='font-family:"+cr.getFontName()+";font-size:"+cr.getFontSize()/2+"pt";
+		  if(cr.isBold())
+		  fontStyle+="font-weight:bold";
+		  if(cr.isItalic())
+		  fontStyle+="font-style:italic";
+		  if(flag&&i!=length-2)
+		  tempString+=currentChar;
+		  else if(!flag){
+		  htmlText+=fontStyle+"'>"+tempString+currentChar+"</span>";
+		  tempString="";
+		  
+		  }else
+		  htmlText+=fontStyle+"'>"+tempString+currentChar+"</span>";
+
+		  
+		   }
+
+		   }
+		   imgBegin=htmlText.indexOf("INCLUDEPICTURE");
+		   
+		   imgEnd=htmlText.indexOf("<img src=");
+		//   String str=htmlText.
+		   
+//			   cr.text().getChars(srcBegin, srcEnd, dst, dstBegin);
+//			   String str=htmlText.substring(imgBegin, imgEnd);
+//			   htmlText=htmlText.replaceAll(str,"&nbsp;");
+//			   System.out.println("字符"+str+"结束");
+//			   System.out.println("起始"+imgBegin);
+//			   System.out.println("结束"+imgEnd);
+		System.out.println("文章"+htmlText);
+		   return htmlText;
+	}
+	
+}

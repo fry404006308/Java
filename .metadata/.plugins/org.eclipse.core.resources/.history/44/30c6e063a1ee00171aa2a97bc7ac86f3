@@ -1,0 +1,157 @@
+package com.fry.poiDemo.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fry.poiDemo.bean.Exam;
+import com.fry.poiDemo.bean.Option;
+import com.fry.poiDemo.bean.Point;
+import com.fry.poiDemo.bean.Question;
+import com.fry.poiDemo.dao.Word;
+
+public class WordService {
+	//将srcFile对应的word文件中的内容读入内存中
+	// 读取srcFile源word文件docx中的image图片并且存放在文件夹imageFile中
+	public void readData(String srcFile, String imageFile){
+		Word word=new Word();
+		String text=word.readDocxImage(srcFile, imageFile);//从dao层word文件中获取来的文本
+//		System.out.println(text);
+		//把所有除数字和点之外的东西替换成替换成""
+		String regex1="[1-9][0-9]*\\.\\[[\\w]*\\]";
+		String temp[]=text.split(regex1);
+		for(String item:temp){
+			System.out.println("--------开始线--------");
+			System.out.println(item);
+			System.out.println("--------结束线--------");
+		}
+	}
+	
+	//写代码一定要谋而后动
+	
+	//1、正常的操作应该是把一个测试读进来 readExam，也是readWord
+	//2、然后对这个测试进行操作
+	//把这个测试的多个point读进来  getPoints
+	//3、然后对每一个知识点进行操作
+	//把每一个知识点划分成每一个题目  getQuestions
+	//4、然后对每一个题目进行操作
+	//把每一个题目分成题干和各个选项以及得到正确选项  getItems
+	
+	
+	public void readWord(String srcFile, String imageFile){
+		Exam exam=new Exam();
+	}
+	
+	//1、正常的操作应该是把一个测试读进来 readExam，也是readWord
+	public void readExam(String srcFile, String imageFile,Exam exam){
+		Word word=new Word();
+		String text=word.readDocxImage(srcFile, imageFile);//从dao层word文件中获取来的文本
+		
+		//将从dao层word文件中获取来的文本存到exam对象中
+		exam.setText(text);
+		//获取测试的名称
+		String examName=getFileName(srcFile);
+		exam.setName(examName);
+	}
+	
+	
+	//2、然后对这个测试进行操作
+	//把这个测试的多个point读进来  getPoints
+	public void readPoint(Exam exam){
+		//将Exam对象的内容读到它下面的point下
+		List<Point> points=new ArrayList<Point>();
+		String examText=exam.getText();
+		String regex="[0-9]+\\.[0-9]+\\.[0-9]+\\s*";
+		String[] pointTexts=examText.split(regex);
+
+		for(int i=0;i<=pointTexts.length-1;i++){
+			//将测试的标题加入Exam对象中
+			if(i==0){
+				String title=pointTexts[i].trim();
+				exam.setTitle(title);
+			}else{//将知识点加入到exam对象的points中
+				Point point = new Point();
+				String pointText=pointTexts[i].trim();
+				point.setText(pointText);
+				points.add(point);
+			}
+		}
+		//将写好内容的point设置到exam的setPoint中
+		exam.setPoints(points);
+	}
+	
+	//3、然后对每一个知识点进行操作
+	//把每一个知识点划分成每一个题目  getQuestions
+	public void readQuestion(Point point){
+		String pointText=point.getText();
+		String regex ="[0-9]+\\.\\s*\\[\\w+\\]\\s*";
+		String[] questionTexts=pointText.split(regex);
+		List<Question> questions=new ArrayList<Question>();
+		
+		for(int i=0;i<questionTexts.length;i++){
+			if(i==0){
+				String pointName=questionTexts[i].trim();
+				point.setPointName(pointName);
+			}
+			else{
+				Question question=new Question();
+				String questionText=questionTexts[i].trim();
+				question.setText(questionText);
+				questions.add(question);
+			}
+		}
+		point.setQuestions(questions);
+//		for(int i=0;i<questionTexts.length;i++){
+//			System.out.println("-----------------------------问题"+i+"开始-----------------------------");
+//			System.out.println(questionTexts[i]);
+//			System.out.println("-----------------------------问题"+i+"结束-----------------------------");
+//		}
+	}
+	
+	//4、然后对每一个题目进行操作
+	//把每一个题目分成题干和各个选项以及得到正确选项  getItems
+	public void readItem(Question question){
+		String questionText=question.getText();
+		//如果选项是A.的形式，就用这个，如果选项是（A）的形式就用其它的
+		String regex ="[ABCD]\\s*[\\.、]\\s*";
+//		String regex1="[（(]\\s*[ABCD]\\s*[）)]\\s*";
+		String[] optionTexts;
+		if(questionText.contains(regex)){
+			System.out.println("aaaaaaaaaaa");
+			optionTexts=questionText.split(regex);
+		}
+		else{
+			optionTexts=questionText.split(regex1);
+		}
+		
+		List<Option> options=new ArrayList<Option>();
+		for(int i=0;i<optionTexts.length;i++){
+			if(i==0){
+				String contentDescription=optionTexts[i].trim();
+				question.setContentDescription(contentDescription);
+			}
+			else{
+				Option option_=new Option();
+				String optionText=optionTexts[i].trim();
+				option_.setText(optionText);
+				options.add(option_);
+			}
+		}
+		question.setOptions(options);
+	}
+	
+	//查找正确答案的时候，我可以把所以非大写字母全部替换成""，然后如果这个字符串存在，取最后一个
+	
+	//从路径总获取文件名称
+	/*
+	 * 在这个路径中我想得到model2
+	 * //myRes//word//model1.docx
+	 * */
+	public String getFileName(String srcFile){
+		String temp[]=srcFile.split("\\/");
+		String temp1=temp[temp.length-1];
+		String temp3[]=temp1.split("\\.");
+		String txtFileName=temp3[0];
+		return txtFileName;
+	}
+	
+}

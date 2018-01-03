@@ -1,0 +1,45 @@
+package com.fry.poiTest.model;
+
+import java.net.URL;
+
+import org.junit.*;
+import org.junit.Assert.*;
+
+public class WordTest {
+//	@Test
+	public void testDocx(){
+		ClassLoader classLoader = getClass().getClassLoader(); 
+		//test3.docx里面纯文字
+//		URL resource = classLoader.getResource("test3.docx"); 
+		//test4.docx里面有图片
+		URL resource = classLoader.getResource("test4.docx"); 
+		String srcFile = resource.getPath();  
+        System.out.println(srcFile);  
+		Word word=new Word();
+		//用Word中的readDocx函数读取path对应的srcFile文件docx中的文字
+		word.readDocx(srcFile);
+		
+		//将srcFile（docx）word文件中的文字读取到destFile（txt）文本文件中去
+		String destFile="myRes//test3.txt";
+		word.readDocx2(srcFile,destFile);
+	}
+	
+	//读取docx文件中的文字和图片
+//	@Test
+	public void testDocxImage(){
+		System.out.println("------------------------------这是testDocxImage------------------------------");
+		ClassLoader classLoader = getClass().getClassLoader(); 
+		URL resource = classLoader.getResource("test4.docx"); 
+		String srcFile = resource.getPath();  
+        System.out.println(srcFile);  
+        Word word=new Word();
+        String imageFile="myRes//image//";
+        //读取srcFile源word文件docx中的image图片并且存放在文件夹imageFile中
+        word.readDocxImage(srcFile, imageFile);
+	}
+	
+	//读取word(.docx)中的表格
+	public void testDocxTable(){
+		
+	}
+}

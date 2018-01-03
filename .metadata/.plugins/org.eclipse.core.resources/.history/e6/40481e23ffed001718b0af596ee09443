@@ -1,0 +1,9 @@
+package com.fry.poiDemo.bean;
+
+public class Point {
+	String pointID;
+	String pointName;
+	Question questions[];
+	
+	
+}

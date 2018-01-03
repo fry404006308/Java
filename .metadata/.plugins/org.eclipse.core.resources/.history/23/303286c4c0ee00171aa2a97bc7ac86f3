@@ -1,0 +1,7 @@
+package com.fry.poiDemo.service;
+
+public class ExcelService {
+	public void writeExcel(Exam exam,String excelName){
+		
+	}
+}

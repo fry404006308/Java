@@ -1,0 +1,27 @@
+package com.fry.poiDemo.bean;
+
+public class Exam {
+	String text;//测试的全文内容
+	String name;//测试名称
+	Point points[];//测试对应的知识点
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Point[] getPoints() {
+		return points;
+	}
+	public void setPoints(Point[] points) {
+		this.points = points;
+	}
+	
+	
+}

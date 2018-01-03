@@ -1,0 +1,23 @@
+package com.fry.poiTest.model;
+
+import java.net.URL;
+
+import org.junit.*;
+import org.junit.Assert.*;
+
+public class WordTest {
+	@Test
+	public void testDocx(){
+		ClassLoader classLoader = getClass().getClassLoader(); 
+		URL resource = classLoader.getResource("test3.docx"); 
+		String srcFile = resource.getPath();  
+        System.out.println(srcFile);  
+		Word word=new Word();
+		//用Word中的readDocx函数读取path对应的srcFile文件docx中的文字
+		word.readDocx(srcFile);
+		
+		//将srcFile（docx）word文件中的文字读取到destFile（txt）文本文件中去
+		String destFile="myRes//test3.txt";
+		word.readDocx2(srcFile,destFile);
+	}
+}

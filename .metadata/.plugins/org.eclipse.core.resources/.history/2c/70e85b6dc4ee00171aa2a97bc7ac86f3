@@ -1,0 +1,66 @@
+package com.fry.poiDemo.dao;
+
+import java.io.FileOutputStream;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import com.fry.poiDemo.bean.Exam;
+
+public class Excel {
+
+	// 我可以把他们需要修改的数据标红
+	public void writeExcel(Exam exam, String excelPath) {
+		//标题和标题说明
+		String[] titleRow={"itemID","pointID","pointName","contentDescription","choiceA","choiceB","choiceC","choiceD",
+				"correctAnswer","subjectName","solveStep","titlePic1","titlePic2","itemTestPatternID"};
+		String[] titleRowDescribe={"说明","","","题干的文字部分","选项A","选项B","选项C","选项D",
+				"正确答案","","","题干的图片部分存放的目录","最多两张图片",""};
+		//正文部分要增加的div标签
+		Workbook workbook = null;
+		try {
+			// XSSFWorkbook used for .xlsx (>= 2007), HSSWorkbook for 03 .xls
+			workbook = new XSSFWorkbook();// XSSFWorkbook();//WorkbookFactory.create(inputStream);
+		} catch (Exception e) {
+			System.out.println("创建Excel失败: ");
+			e.printStackTrace();
+		}
+		if (workbook != null) {
+			Sheet sheet = workbook.createSheet("kp题库");
+			//操作标题行
+			Row row0 = sheet.createRow(0);
+			for (int i = 0; i < titleRow.length; i++) {
+				Cell cell = row0.createCell(i, Cell.CELL_TYPE_STRING);
+				cell.setCellValue(titleRow[i]);
+				sheet.autoSizeColumn(i);//自动调整宽度
+			}
+			//操作标题行说明行
+			Row row1 = sheet.createRow(1);
+			for (int i = 0; i < titleRowDescribe.length; i++) {
+				Cell cell = row1.createCell(i, Cell.CELL_TYPE_STRING);
+				cell.setCellValue(titleRowDescribe[i]);
+				sheet.autoSizeColumn(i);//自动调整宽度
+			}
+			for (int rowNum = 2; rowNum < 10; rowNum++) {
+				Row row = sheet.createRow(rowNum);
+				for (int i = 0; i < 6; i++) {
+					Cell cell = row.createCell(i, Cell.CELL_TYPE_STRING);
+					cell.setCellValue("单元格" + String.valueOf(rowNum + 1) + String.valueOf(i + 1));
+				}
+			}
+			try {
+				FileOutputStream outputStream = new FileOutputStream(excelPath);
+				workbook.write(outputStream);
+				outputStream.flush();
+				outputStream.close();
+			} catch (Exception e) {
+				System.out.println("写入Excel失败: ");
+				e.printStackTrace();
+			}
+		}
+	}
+}

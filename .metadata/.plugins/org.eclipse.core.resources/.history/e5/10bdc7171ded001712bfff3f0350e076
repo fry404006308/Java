@@ -1,0 +1,19 @@
+package com.fry.poiTest.model;
+
+import java.net.URL;
+
+import org.junit.*;
+import org.junit.Assert.*;
+
+public class WordTest {
+	@Test
+	public void testDocx(){
+		ClassLoader classLoader = getClass().getClassLoader(); 
+		URL resource = classLoader.getResource("test3.docx"); 
+		String path = resource.getPath();  
+        System.out.println(path);  
+		Word word=new Word();
+		word.readDocx(path);
+		word.readDocx2(path);
+	}
+}

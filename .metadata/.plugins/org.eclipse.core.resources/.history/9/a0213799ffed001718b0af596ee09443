@@ -1,0 +1,11 @@
+package com.fry.poiDemo.bean;
+
+public class Question {
+	String text;//每个问题对应的全文
+	String itemID;//问题的编号
+	String contentDescription;//问题的主干
+	Option options;//问题中的选项
+	String correctAnswer;//问题的正确答案
+	Image_ images;
+	
+}

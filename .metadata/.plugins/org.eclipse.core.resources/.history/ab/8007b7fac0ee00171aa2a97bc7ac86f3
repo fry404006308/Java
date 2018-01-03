@@ -1,0 +1,12 @@
+package com.fry.poiDemo.dao;
+
+import org.junit.Test;
+
+public class ExcelTest {
+	@Test
+	public void testWriteExcel(){
+		Excel excel = new Excel();
+		String excelName="myRes//excel//test.xlsx";
+		excel.writeExcel(excelName);
+	}
+}

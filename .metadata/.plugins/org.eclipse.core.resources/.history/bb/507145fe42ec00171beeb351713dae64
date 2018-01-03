@@ -1,0 +1,6 @@
+package com.fry.bean;
+
+public class Test {
+	String name;
+	
+}

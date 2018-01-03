@@ -1,0 +1,8 @@
+package com.fry.poiDemo.bean;
+
+public class Option {
+	String text;//选项中的文字
+	Image_ images[];//选项中用到的图片
+	
+	
+}

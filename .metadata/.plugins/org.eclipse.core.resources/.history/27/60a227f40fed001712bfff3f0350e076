@@ -1,0 +1,12 @@
+package com.fry.poiTest.model;
+
+import org.junit.*;
+import org.junit.Assert.*;
+
+public class WordTest {
+	@Test
+	public void testDocx(){
+		Word word=new Word();
+		word.readDocx(classLoader.getResource("/test3.docx").getFile());
+	}
+}

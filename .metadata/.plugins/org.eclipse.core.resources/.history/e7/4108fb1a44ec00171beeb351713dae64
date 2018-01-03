@@ -1,0 +1,6 @@
+package com.fry.bean;
+
+public class Image_ {
+	String name;
+	String position;
+}

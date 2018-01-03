@@ -1,0 +1,25 @@
+package com.fry.poiDemo.operation;
+
+import java.net.URL;
+
+import com.fry.poiDemo.service.WordService;
+
+public class Word2Excel {
+	// 在最外层的option操作里面，我要做的就是读哪个word文件，然后把对应的结果写到excel里面去就好，只有这两个操作
+	/*
+	 * 在最外层的option操作里面 1、读哪个word文件 2、把对应的结果写到excel里面去
+	 * 所以我这里可以直接写一个main函数，然后操作就是操作第一个文件，第二个文件，第三个文件
+	 */
+	public void mainOperation(){
+		//一、操作第一个文件
+		//1、获取第一个word文件的路径已经要存放图片的路径，以及要操作的excel表的路径
+		String wordFile ="//myRes//word//model1";
+		String imageFile="//myRes//image1//";
+		String excelFile="//myRes//excel//ans.xlsx";
+		//2、从word中读取数据
+		WordService wordService = new WordService();
+		wordService.readWord(wordFile, imageFile);
+		ExcelService excelService = new ExcelService();
+		excelService.writeExcel();
+	}
+}

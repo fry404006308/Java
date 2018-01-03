@@ -1,0 +1,10 @@
+package com.fry.poiDemo.bean;
+
+public class Question {
+	String itemID;
+	String contentDescription;
+	Option options;
+	String correctAnswer;
+	Image_ images;
+	
+}

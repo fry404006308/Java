@@ -1,0 +1,19 @@
+package com.fry.bean;
+
+public class Option {
+	String liter;
+	Image_ images;
+	public String getLiter() {
+		return liter;
+	}
+	public void setLiter(String liter) {
+		this.liter = liter;
+	}
+	public Image_ getImages() {
+		return images;
+	}
+	public void setImages(Image_ images) {
+		this.images = images;
+	}
+	
+}

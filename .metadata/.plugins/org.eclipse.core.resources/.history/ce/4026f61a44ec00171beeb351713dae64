@@ -1,0 +1,9 @@
+package com.fry.bean;
+
+public class Question {
+	String itemID;
+	String contentDescription;
+	Option options;
+	String correctAnswer;
+	Image_ images;
+}

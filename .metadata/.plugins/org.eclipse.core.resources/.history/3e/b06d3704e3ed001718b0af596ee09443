@@ -1,0 +1,25 @@
+package com.fry.poiDemo.bean;
+
+import java.io.File;
+import java.io.FileInputStream;
+
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+
+public class Word {
+	// 用Word中的readDocx函数读取path对应的srcFile文件中的文字
+	public void readDocx(String srcFile) {
+		File file = new File(srcFile);
+		String str = "";
+		try {
+			FileInputStream fis = new FileInputStream(file);
+			XWPFDocument xdoc = new XWPFDocument(fis);
+			XWPFWordExtractor extractor = new XWPFWordExtractor(xdoc);
+			String doc1 = extractor.getText();
+			System.out.println(doc1);
+			fis.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

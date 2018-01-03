@@ -1,0 +1,20 @@
+package com.fry.poiDemo.dao;
+
+import org.junit.Test;
+
+import com.fry.poiDemo.bean.Exam;
+import com.fry.poiDemo.service.WordService;
+
+public class ExcelTest {
+	@Test
+	public void testWriteExcel(){
+		Excel excel = new Excel();
+		String excelName="myRes//excel//test.xlsx";
+		String wordFile ="myRes//word//model1.docx";
+		String imageFile="myRes//image1//";
+		Exam exam=new Exam();
+		WordService wordService = new WordService();
+		wordService.readWord(wordFile, imageFile, exam);
+//		excel.writeExcel(excelName);
+	}
+}

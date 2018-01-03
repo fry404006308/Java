@@ -1,0 +1,10 @@
+package com.fry.dao;
+
+/**
+ * word有关的操作
+ * 包括从word中读入数据和把数据写到word中去
+ * 
+ * */
+public class Word {
+	
+}

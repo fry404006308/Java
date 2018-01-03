@@ -1,0 +1,20 @@
+package com.fry.poiDemo.bean;
+
+import java.net.URL;
+
+import com.fry.poiTest.model.Word;
+
+public class WordTest {
+	@Test
+	public void testDocx(){
+		ClassLoader classLoader = getClass().getClassLoader(); 
+
+		//test4.docx里面有图片
+		URL resource = classLoader.getResource("test4.docx"); 
+		String srcFile = resource.getPath();  
+        System.out.println(srcFile);  
+		Word word=new Word();
+		//用Word中的readDocx函数读取path对应的srcFile文件docx中的文字
+		word.readDocx(srcFile);
+	}
+}

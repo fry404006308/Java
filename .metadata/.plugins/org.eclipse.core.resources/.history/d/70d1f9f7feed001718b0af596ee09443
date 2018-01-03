@@ -1,0 +1,6 @@
+package com.fry.poiDemo.bean;
+
+public class Exam {
+	String text;//测试的全文内容
+	
+}
